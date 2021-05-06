@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+    <Button
+            android:text="calculator"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:id="@+id/buttonCalc"
+            android:layout_marginTop="75dp" />
+
+    <Button
+            android:text="barcode"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:id="@+id/buttonBarcode"
+            android:layout_marginTop="20dp" />
+
+    <Button
+            android:text="todo"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:id="@+id/buttonTodo"
+            android:layout_marginTop="20dp" />
+
+</LinearLayout>
