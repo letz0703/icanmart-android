@@ -13,6 +13,8 @@ public class Calculator extends AppCompatActivity {
 
     private TextView textViewResult, textViewHistory;
     private String number = null; // 이건 뭐지? object 다. textViewResult가 empty인지 아닌지 알 수 있다
+    double firstNum = 0;
+    double lastNum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +107,57 @@ public class Calculator extends AppCompatActivity {
             }
         });
 
+        btnAC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberClick("9");
+            }
+        });
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberClick("9");
+            }
+        });
+        btnDivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberClick("9");
+            }
+        });
+
+        btnMulti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberClick("9");
+            }
+        });
+
+        btnDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberClick("9");
+            }
+        });
+        btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberClick("9");
+            }
+        });
+        btnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberClick("9");
+            }
+        });
+        btnEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberClick("9");
+            }
+        });
+
 
     }
 
@@ -116,4 +169,46 @@ public class Calculator extends AppCompatActivity {
         }
         textViewResult.setText(number);
     }
+
+    public void plus() {
+        lastNum = Double.parseDouble(textViewResult.getText().toString());
+        firstNum = firstNum + lastNum;
+
+        // print first number's value to the screen.
+        textViewResult.setText("" + firstNum);
+    }
+
+    public void minus() {
+        if (firstNum == 0) {
+            firstNum = Double.parseDouble(textViewResult.getText().toString());
+        } else {
+            lastNum = Double.parseDouble(textViewResult.getText().toString());
+            firstNum = firstNum - lastNum;
+        }
+        textViewResult.setText(""+ firstNum);
+    }
+
+    public void multiply(){
+        if (firstNum == 0 ){
+            firstNum = 1;
+            lastNum = Double.parseDouble(textViewResult.getText().toString());
+            firstNum = firstNum * lastNum;
+        } else {
+            lastNum = Double.parseDouble(textViewResult.getText().toString());
+            firstNum = firstNum * lastNum;
+        }
+        textViewResult.setText(""+ firstNum);
+    }
+
+    public void divide() {
+        if ( firstNum == 0){
+            lastNum = Double.parseDouble(textViewResult.getText().toString());
+            firstNum = lastNum/1;
+        } else {
+            lastNum = Double.parseDouble(textViewResult.getText().toString());
+            firstNum = firstNum / lastNum;
+        }
+        textViewResult.setText(""+firstNum);
+    }
+
 }
