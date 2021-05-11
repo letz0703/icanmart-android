@@ -9,7 +9,7 @@
             android:roundIcon="@drawable/icanmart_logo"
             android:supportsRtl="true"
             android:theme="@style/Theme.Icanmart">
-        <activity android:name=".Todo"></activity>
+        <activity android:name=".Todo" />
         <activity android:name=".Calculator" />
         <activity android:name=".MainActivity">
             <intent-filter>

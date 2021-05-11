@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class Calculator extends AppCompatActivity {
 
     private Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnDot, btnEqual, btnAC, btnMulti, btnDivide, btnPlus, btnMinus, btnDel;
@@ -15,6 +17,11 @@ public class Calculator extends AppCompatActivity {
     private String number = null; // 이건 뭐지? object 다. textViewResult가 empty인지 아닌지 알 수 있다
     double firstNum = 0;
     double lastNum = 0;
+
+    String status = null;
+    boolean operator = false;
+
+    DecimalFormat myFormatter = new DecimalFormat("######.######");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,14 +129,40 @@ public class Calculator extends AppCompatActivity {
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberClick("9");
+                if (operator){
+                    if (status == "multiplication"){
+                        multiply();
+                    } else if (status =="sum"){
+                        plus();
+                    } else if (status =="subtraction"){
+                        minus();
+                    } else {
+                        divide();
+                    }
+                }
+                status = "division";
+                operator = false;
+                number = null;
             }
         });
 
         btnMulti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberClick("9");
+                if (operator){
+                    if (status == "division"){
+                        divide();
+                    } else if (status == "plus"){
+                        plus();
+                    } else if (status == "subtraction"){
+                        minus();
+                    } else {
+                        multiply();
+                    }
+                }
+                operator = false;
+                status = "multiplication";
+                number = null;
             }
         });
 
@@ -142,23 +175,64 @@ public class Calculator extends AppCompatActivity {
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberClick("9");
+                 if (operator)
+                 {
+                     if (status == "multiplication"){
+                         multiply();
+                     } else if (status == "division"){
+                         divide();
+                     } else if (status == "subtraction"){
+                         minus();
+                     } else {
+                         plus();
+                     }
+                 }
+                 status = "sum";
+                 operator = false;
+                 number = null;
             }
         });
+
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberClick("9");
+                if (operator){
+                    if ( status == "multiplication"){
+                        multiply();
+                    } else if ( status == "division"){
+                        divide();
+                    } else if ( status == "sum"){
+                        plus();
+                    } else {
+                        minus();
+                    }
+                }
+                status = "subtraction";
+                operator = false;
+                number = null;
             }
         });
         btnEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberClick("9");
+                if (operator){
+                    if (status == "multiplication"){
+                        multiply();
+                    } else if (status == "division"){
+                        divide();
+                    } else if (status == "sum"){
+                        plus();
+                    } else if (status == "subtraction"){
+                        minus();
+                    } else {
+                        firstNum = Double.parseDouble(textViewResult.getText().toString());
+                    }
+                }
+                operator = false;
+
             }
+
         });
-
-
     }
 
     public void numberClick(String view) {
@@ -168,6 +242,7 @@ public class Calculator extends AppCompatActivity {
             number = number + view;
         }
         textViewResult.setText(number);
+        operator = true;
     }
 
     public void plus() {
@@ -175,7 +250,8 @@ public class Calculator extends AppCompatActivity {
         firstNum = firstNum + lastNum;
 
         // print first number's value to the screen.
-        textViewResult.setText("" + firstNum);
+//        textViewResult.setText("" + firstNum);
+        textViewResult.setText(myFormatter.format(firstNum));
     }
 
     public void minus() {
@@ -185,7 +261,8 @@ public class Calculator extends AppCompatActivity {
             lastNum = Double.parseDouble(textViewResult.getText().toString());
             firstNum = firstNum - lastNum;
         }
-        textViewResult.setText(""+ firstNum);
+//        textViewResult.setText(""+ firstNum);
+        textViewResult.setText(myFormatter.format(firstNum));
     }
 
     public void multiply(){
@@ -197,7 +274,8 @@ public class Calculator extends AppCompatActivity {
             lastNum = Double.parseDouble(textViewResult.getText().toString());
             firstNum = firstNum * lastNum;
         }
-        textViewResult.setText(""+ firstNum);
+//        textViewResult.setText(""+ firstNum);
+        textViewResult.setText(myFormatter.format(firstNum));
     }
 
     public void divide() {
@@ -208,7 +286,7 @@ public class Calculator extends AppCompatActivity {
             lastNum = Double.parseDouble(textViewResult.getText().toString());
             firstNum = firstNum / lastNum;
         }
-        textViewResult.setText(""+firstNum);
+//        textViewResult.setText(""+firstNum);
+        textViewResult.setText(myFormatter.format(firstNum));
     }
-
 }
