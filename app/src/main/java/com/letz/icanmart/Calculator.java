@@ -117,15 +117,22 @@ public class Calculator extends AppCompatActivity {
         btnAC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberClick("9");
+                number = null;
+                status = null;
+                textViewResult.setText("0");
+                textViewHistory.setText("");
+                firstNum = 0;
+                lastNum = 0;
             }
         });
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                numberClick("9");
+            public void onClick(View v) {// L2
+                number = number.substring(0, number.length()-1);
+                textViewResult.setText(number);
             }
         });
+
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,7 +176,6 @@ public class Calculator extends AppCompatActivity {
         btnDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberClick("9");
             }
         });
         btnPlus.setOnClickListener(new View.OnClickListener() {
