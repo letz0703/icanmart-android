@@ -23,6 +23,8 @@ public class Calculator extends AppCompatActivity {
 
     DecimalFormat myFormatter = new DecimalFormat("######.######");
 
+    String history, currentResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,6 +158,10 @@ public class Calculator extends AppCompatActivity {
         btnMulti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                history = textViewHistory.getText().toString();
+                currentResult = textViewResult.getText().toString();
+                textViewHistory.setText(history + currentResult+"x");
+
                 if (operator){
                     if (status == "division"){
                         divide();
@@ -180,7 +186,7 @@ public class Calculator extends AppCompatActivity {
                     String number = "0.";
                 }
                 else {
-                    number = number + "."
+                    number = number + ".";
                 }
 
                 textViewResult.setText(number);
@@ -191,6 +197,10 @@ public class Calculator extends AppCompatActivity {
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                history = textViewHistory.getText().toString();
+                currentResult = textViewResult.getText().toString();
+                textViewHistory.setText(history + currentResult+"+");
+
                  if (operator)
                  {
                      if (status == "multiplication"){
@@ -212,6 +222,10 @@ public class Calculator extends AppCompatActivity {
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                history = textViewHistory.getText().toString();
+                currentResult = textViewResult.getText().toString();
+                textViewHistory.setText(history + currentResult+"-");
+
                 if (operator){
                     if ( status == "multiplication"){
                         multiply();
@@ -295,6 +309,10 @@ public class Calculator extends AppCompatActivity {
     }
 
     public void divide() {
+        history = textViewHistory.getText().toString();
+        currentResult = textViewResult.getText().toString();
+        textViewHistory.setText(history + currentResult+"/");
+
         if ( firstNum == 0){
             lastNum = Double.parseDouble(textViewResult.getText().toString());
             firstNum = lastNum/1;
