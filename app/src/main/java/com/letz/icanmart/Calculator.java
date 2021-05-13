@@ -176,8 +176,18 @@ public class Calculator extends AppCompatActivity {
         btnDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (number == null) {
+                    String number = "0.";
+                }
+                else {
+                    number = number + "."
+                }
+                
+                textViewResult.setText(number);
+
             }
         });
+
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
