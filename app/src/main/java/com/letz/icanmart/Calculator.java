@@ -182,7 +182,7 @@ public class Calculator extends AppCompatActivity {
                 else {
                     number = number + "."
                 }
-                
+
                 textViewResult.setText(number);
 
             }
