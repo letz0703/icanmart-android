@@ -243,12 +243,12 @@ public class Calculator extends AppCompatActivity {
                 currentResult = textViewResult.getText().toString();
                 textViewHistory.setText(history + currentResult + "-");
 
-                if (operator){
-                    if ( status == "multiplication"){
+                if (operator) {
+                    if (status == "multiplication") {
                         multiply();
-                    } else if ( status == "division"){
+                    } else if (status == "division") {
                         divide();
-                    } else if ( status == "sum"){
+                    } else if (status == "sum") {
                         plus();
                     } else {
                         minus();
@@ -262,23 +262,21 @@ public class Calculator extends AppCompatActivity {
         btnEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (operator){
-                    if (status == "multiplication"){
+                if (operator) {
+                    if (status == "multiplication") {
                         multiply();
-                    } else if (status == "division"){
+                    } else if (status == "division") {
                         divide();
-                    } else if (status == "sum"){
+                    } else if (status == "sum") {
                         plus();
-                    } else if (status == "subtraction"){
+                    } else if (status == "subtraction") {
                         minus();
                     } else {
                         firstNum = Double.parseDouble(textViewResult.getText().toString());
                     }
                 }
                 operator = false;
-
             }
-
         });
     }
 
@@ -316,8 +314,8 @@ public class Calculator extends AppCompatActivity {
         dot = true;
     }
 
-    public void multiply(){
-        if (firstNum == 0 ){
+    public void multiply() {
+        if (firstNum == 0) {
             firstNum = 1;
             lastNum = Double.parseDouble(textViewResult.getText().toString());
             firstNum = firstNum * lastNum;
@@ -333,11 +331,11 @@ public class Calculator extends AppCompatActivity {
     public void divide() {
         history = textViewHistory.getText().toString();
         currentResult = textViewResult.getText().toString();
-        textViewHistory.setText(history + currentResult+"/");
+        textViewHistory.setText(history + currentResult + "/");
 
-        if ( firstNum == 0){
+        if (firstNum == 0) {
             lastNum = Double.parseDouble(textViewResult.getText().toString());
-            firstNum = lastNum/1;
+            firstNum = lastNum / 1;
         } else {
             lastNum = Double.parseDouble(textViewResult.getText().toString());
             firstNum = firstNum / lastNum;
