@@ -24,6 +24,7 @@ public class Calculator extends AppCompatActivity {
     DecimalFormat myFormatter = new DecimalFormat("######.######");
 
     String history, currentResult;
+    boolean dot = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +126,7 @@ public class Calculator extends AppCompatActivity {
                 textViewHistory.setText("");
                 firstNum = 0;
                 lastNum = 0;
+                dot = true;
             }
         });
         btnDel.setOnClickListener(new View.OnClickListener() {
@@ -182,15 +184,16 @@ public class Calculator extends AppCompatActivity {
         btnDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (number == null) {
-                    String number = "0.";
+                if (dot){
+                    if (number == null) {
+                        String number = "0.";
+                    }
+                    else {
+                        number = number + ".";
+                    }
                 }
-                else {
-                    number = number + ".";
-                }
-
                 textViewResult.setText(number);
-
+                dot = false;
             }
         });
 
@@ -282,6 +285,7 @@ public class Calculator extends AppCompatActivity {
         // print first number's value to the screen.
 //        textViewResult.setText("" + firstNum);
         textViewResult.setText(myFormatter.format(firstNum));
+        dot = true;
     }
 
     public void minus() {
@@ -293,6 +297,7 @@ public class Calculator extends AppCompatActivity {
         }
 //        textViewResult.setText(""+ firstNum);
         textViewResult.setText(myFormatter.format(firstNum));
+        dot = true;
     }
 
     public void multiply(){
@@ -306,6 +311,7 @@ public class Calculator extends AppCompatActivity {
         }
 //        textViewResult.setText(""+ firstNum);
         textViewResult.setText(myFormatter.format(firstNum));
+        dot = true;
     }
 
     public void divide() {
@@ -322,5 +328,6 @@ public class Calculator extends AppCompatActivity {
         }
 //        textViewResult.setText(""+firstNum);
         textViewResult.setText(myFormatter.format(firstNum));
+        dot = true;
     }
 }
