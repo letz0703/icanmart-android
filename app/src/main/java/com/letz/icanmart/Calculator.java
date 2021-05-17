@@ -26,6 +26,7 @@ public class Calculator extends AppCompatActivity {
     String history, currentResult;
     boolean dot = true;
     boolean btnACcontrol = true;
+    boolean btnEqualsControl = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -259,6 +260,7 @@ public class Calculator extends AppCompatActivity {
                 number = null;
             }
         });
+
         btnEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -276,6 +278,7 @@ public class Calculator extends AppCompatActivity {
                     }
                 }
                 operator = false;
+                btnEqualsControl = true;
             }
         });
     }
@@ -283,13 +286,20 @@ public class Calculator extends AppCompatActivity {
     public void numberClick(String view) {
         if (number == null) {
             number = view;
+
+        } else if (btnEqualsControl) {
+            firstNum = 0;
+            lastNum = 0;
+            number = view;
         } else {
             number = number + view;
         }
+
         textViewResult.setText(number);
         operator = true;
         btnACcontrol = false;
         btnDel.setClickable(true);
+        btnEqualsControl = false;
     }
 
     public void plus() {
