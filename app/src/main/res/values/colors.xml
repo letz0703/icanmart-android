@@ -8,5 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF5722</color>
+<!--    <color name="red_coke">#F40009</color>-->
+    <color name="red_coke">#FE0001</color>
+    <color name="red_icanmart">#C01530</color>
 
 </resources>
