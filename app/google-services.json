@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "576088724914",
+    "firebase_url": "https://icanmart-d1af6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "icanmart-d1af6",
+    "storage_bucket": "icanmart-d1af6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576088724914:android:fce2e68ea38974aa3b80ab",
+        "android_client_info": {
+          "package_name": "com.letz.icanmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576088724914-na6sndtf2jp55aoogiasl9m7988svf00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlLCfZE0_syseM3Zz2tYx6M4MjBbWVXoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576088724914-na6sndtf2jp55aoogiasl9m7988svf00.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "576088724914-o0fnufka45et86jgo2v39ia188g5mc7j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.letz.icanmart"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

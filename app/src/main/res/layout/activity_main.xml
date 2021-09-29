@@ -16,7 +16,7 @@
             android:text="barcode"
             android:layout_width="200dp"
             android:layout_height="75dp"
-            android:id="@+id/buttonBarcode"
+            android:id="@+id/btnBarcode"
             android:layout_marginTop="20dp" />
 
     <Button

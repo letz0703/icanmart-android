@@ -10,6 +10,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Icanmart">
         <activity
+                android:name=".Barcode"
+                android:exported="true" />
+        <activity
                 android:name=".SplashScreen"
                 android:exported="true">
             <intent-filter>
@@ -24,9 +27,7 @@
         <activity
                 android:name=".Calculator"
                 android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         calculator = findViewById(R.id.buttonCalc);
-        barcode = findViewById(R.id.buttonBarcode);
+        barcode = findViewById(R.id.btnBarcode);
         todo = findViewById(R.id.buttonTodo);
 
         todo.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Calculator.class);
                 startActivity(intent);
             }
+        });
+        
+        barcode.setOnClickListener(v -> {
+            Intent igoBarcode = new Intent(MainActivity.this,Barcode.class);
+            startActivity(igoBarcode);
+            finish();
+            
+            
         });
     }
 }
