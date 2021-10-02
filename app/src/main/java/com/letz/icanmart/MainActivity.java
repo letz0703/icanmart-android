@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
             Intent igoBarcode = new Intent(MainActivity.this,Barcode.class);
             startActivity(igoBarcode);
             finish();
-            
-            
         });
     }
 }

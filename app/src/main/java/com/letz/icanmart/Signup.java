@@ -3,6 +3,7 @@ package com.letz.icanmart;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup extends AppCompatActivity
 {
@@ -23,7 +27,13 @@ public class Signup extends AppCompatActivity
     Button btnSignup;
     ProgressBar progressBar;
 
-    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+    FirebaseUser user = auth.getCurrentUser();
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference dbReference = database.getReference("");
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +58,22 @@ public class Signup extends AppCompatActivity
     public void signUpFirebase(String userEmail, String userPassword)
     {
         progressBar.setVisibility(View.VISIBLE);
-        firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
+        auth.createUserWithEmailAndPassword(userEmail, userPassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
                 {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful())
                         {
+                            dbReference.child("Users").child(auth.getUid()).child("userEmail").setValue(userEmail);
                             Toast.makeText(Signup.this, "Your Account is created", Toast.LENGTH_SHORT).show();
                             finish();
                             progressBar.setVisibility(View.INVISIBLE);
+
+                            Intent igoMain = new Intent(Signup.this,MainActivity.class);
+                            igoMain.putExtra("userEmail",userEmail);
+                            startActivity(igoMain);
+                            finish();
                         }
                         else
                         {
