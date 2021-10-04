@@ -11,26 +11,28 @@
             android:theme="@style/Theme.Icanmart">
         <activity
                 android:name=".Signup"
-                android:exported="true" />
+                android:parentActivityName=".MainActivity"
+                android:exported="true"/>
         <activity
                 android:name=".Barcode"
                 android:exported="true" />
         <activity
                 android:name=".SplashScreen"
-                android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                android:exported="true"></activity>
         <activity
                 android:name=".Todo"
                 android:parentActivityName=".MainActivity" />
         <activity
                 android:name=".Calculator"
                 android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
