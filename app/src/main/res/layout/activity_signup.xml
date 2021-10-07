@@ -4,8 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Signup"
-        >
+        tools:context=".Signup">
 
     <ImageView
             android:layout_width="200dp"
@@ -70,4 +69,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnSignUp_Signup"
             app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+            android:text="Forgot Password?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvForgot_Signup"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignUp_Signup"
+            android:layout_marginTop="112dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

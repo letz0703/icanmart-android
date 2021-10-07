@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -45,6 +46,7 @@ public class Signup extends AppCompatActivity
     Button btnSignup;
     ProgressBar progressBar;
     boolean imageControl = false;
+    TextView forgotLink;
 
 
     FirebaseAuth auth;
@@ -81,12 +83,19 @@ public class Signup extends AppCompatActivity
 
         progressBar.setVisibility(View.INVISIBLE);
 
+        forgotLink = findViewById(R.id.tvForgot_Signup);
+
         btnSignup.setOnClickListener(v -> {
             btnSignup.setClickable(false);
             String userEmail = email.getText().toString();
             String userPassword = password.getText().toString();
             signup(userEmail, userPassword);
             finish();
+        });
+
+        forgotLink.setOnClickListener(v -> {
+            Intent iForgot = new Intent(Signup.this,Forgot.class);
+            startActivity(iForgot);
         });
     }
 
