@@ -24,12 +24,6 @@ public class MainActivity extends AppCompatActivity {
         calculator = findViewById(R.id.buttonCalc);
         barcode = findViewById(R.id.btnBarcode);
         todo = findViewById(R.id.buttonTodo);
-        signup = findViewById(R.id.btnSignup_Main);
-        signup = findViewById(R.id.btnSignup_Main);
-        signup.setOnClickListener(v -> {
-            Intent igoSignup = new Intent(MainActivity.this,Signup.class);
-            startActivity(igoSignup);
-        });
 
 
         todo.setOnClickListener(new View.OnClickListener() {

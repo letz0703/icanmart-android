@@ -27,13 +27,4 @@
             android:id="@+id/buttonTodo"
             android:layout_marginTop="20dp" />
 
-    <Button
-            android:text="signup"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnSignup_Main"
-            app:backgroundTint="@android:color/holo_orange_light"
-            android:layout_marginTop="100dp"
-            android:textColor="@android:color/black" />
-
 </LinearLayout>
