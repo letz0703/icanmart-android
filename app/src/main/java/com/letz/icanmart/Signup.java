@@ -51,10 +51,8 @@ public class Signup extends AppCompatActivity
 
     FirebaseAuth auth;
     FirebaseUser user;
-
     FirebaseDatabase database;
     DatabaseReference dbReference;
-
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
 
@@ -69,17 +67,14 @@ public class Signup extends AppCompatActivity
         password = findViewById(R.id.etPassword_SignUp);
         btnSignup = findViewById(R.id.btnSignUp_Signup);
         progressBar = findViewById(R.id.progressBar);
-
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         dbReference = database.getReference();
+        profileImage = findViewById(R.id.iv_Signup);
 
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
-
-        profileImage = findViewById(R.id.iv_Signup);
-
 
         progressBar.setVisibility(View.INVISIBLE);
 
