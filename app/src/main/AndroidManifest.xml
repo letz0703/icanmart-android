@@ -10,14 +10,17 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Icanmart">
         <activity
+                android:name=".ProfileActivity"
+                android:exported="true" />
+        <activity
                 android:name=".Login"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
                 android:name=".Forgot"
                 android:exported="true"
@@ -29,8 +32,7 @@
         <activity
                 android:name=".Barcode"
                 android:exported="true"
-                android:parentActivityName=".MainActivity"
-                />
+                android:parentActivityName=".MainActivity" />
         <activity
                 android:name=".SplashScreen"
                 android:exported="true" />
@@ -40,7 +42,7 @@
         <activity
                 android:name=".Calculator"
                 android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
