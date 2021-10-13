@@ -46,6 +46,13 @@ public class ProfileActivity extends AppCompatActivity
         auth= FirebaseAuth.getInstance();
         firebaseUser = auth.getCurrentUser();
 
+        getUserInfo();
+
+    }
+
+    public void updateProfile() {
+        String userName = etUserName.getText().toString();
+        fdbref.child("Users").child(firebaseUser.getUid()).setValue(userName);
     }
 
 
