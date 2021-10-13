@@ -22,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity
 {
     ImageView ivCircledProfileImage;
     TextView textTap;
-    EditText userName;
+    EditText etUserName;
     Button updateProfile;
 
     FirebaseDatabase database;
@@ -38,7 +38,7 @@ public class ProfileActivity extends AppCompatActivity
         setContentView(R.layout.activity_profile);
 
         ivCircledProfileImage = findViewById(R.id.ivCircle_ProfileActivity);
-        userName = findViewById(R.id.etUserName_ProfileActivity);
+        etUserName = findViewById(R.id.etUserName_ProfileActivity);
         updateProfile = findViewById(R.id.btnUpdate_ProfileActivity);
 
         database = FirebaseDatabase.getInstance();
@@ -64,11 +64,12 @@ public class ProfileActivity extends AppCompatActivity
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String name = snapshot.child("userName").getValue().toString();
                         String image = snapshot.child("image").getValue().toString() ;
-                        userName.setText(name);
+                        etUserName.setText(name);
 
                         if (image.equals("null"))
                         {
-                            ivCircledProfileImage.setImageResource(R.drawable.userIcon);
+                            ivCircledProfileImage.setImageResource(R.drawable.user_icon);
+
                         } else {
                             Picasso.get().load(image).into(ivCircledProfileImage);
                         }
@@ -81,4 +82,6 @@ public class ProfileActivity extends AppCompatActivity
                     }
                 });
     }
+
+
 }
