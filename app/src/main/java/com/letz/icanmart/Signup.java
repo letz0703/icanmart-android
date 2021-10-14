@@ -126,7 +126,6 @@ public class Signup extends AppCompatActivity
                 {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
                             dbReference.child("Users").child(auth.getUid()).child("userEmail").setValue(userEmail);
 
                             if (imageControl) {
@@ -176,12 +175,12 @@ public class Signup extends AppCompatActivity
                             finish();
                             progressBar.setVisibility(View.INVISIBLE);
 
-                        } else {
-                            Toast.makeText(Signup.this, "There is a problem. Try again later", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                });
+//                        else {
+//                            Toast.makeText(Signup.this, "There is a problem. Try again later", Toast.LENGTH_SHORT).show();
+//                        }
 
+                });
     }
 }
 
