@@ -1,6 +1,8 @@
 package com.letz.icanmart;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button todo;
     Button signup;
     TextView resetLink;
+    RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         calculator = findViewById(R.id.buttonCalc);
         barcode = findViewById(R.id.btnBarcode);
         todo = findViewById(R.id.buttonTodo);
+        rv = findViewById(R.id.rv);
+        rv.setLayoutManager(new LinearLayoutManager(this));
 
         todo.setOnClickListener(new View.OnClickListener() {
             @Override
