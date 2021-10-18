@@ -31,7 +31,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView"
+                android:id="@+id/tvName_users_card"
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 app:layout_constraintStart_toEndOf="@+id/ivCircle_users_card"
