@@ -167,7 +167,7 @@ public class Signup extends AppCompatActivity
                             }
 
                             Intent igoMain = new Intent(Signup.this, MainActivity.class);
-                            igoMain.putExtra("userEmail", userEmail);
+//                            igoMain.putExtra("userEmail", userEmail); // Adapter 사용해서 db에서 userName 가져올 것임.
                             startActivity(igoMain);
                             finish();
 
