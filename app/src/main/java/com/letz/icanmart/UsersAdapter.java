@@ -70,7 +70,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>
                 {
                     @Override
                     public void onClick(View v) {
-                        Intent igoChat = new Intent(UsersAdapter.this,Chat.class);
+                        Intent igoChat = new Intent(mContext,Chat.class);
                         igoChat.putExtra("userName",userName);
                         igoChat.putExtra("fdbName",fdbName);
                         mContext.startActivity(igoChat);

@@ -10,6 +10,10 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Icanmart">
         <activity
+                android:name=".Chat"
+                android:theme="@style/Theme.Chat"
+                android:exported="false" />
+        <activity
                 android:name=".ProfileActivity"
                 android:exported="true" />
         <activity
