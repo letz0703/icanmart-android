@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     FirebaseDatabase database;
     DatabaseReference reference;
-    String userName;
-    List<String> list;
+    String userName;List<String> list;
     UsersAdapter adapter;
 
     FirebaseAuth auth;
