@@ -31,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
     Button calculator;
     Button barcode;
     Button todo;
-    Button signup;
-    TextView resetLink;
+    Button btnChat;
+//    Button signup;
+//    TextView resetLink;
     RecyclerView rv;
 
     FirebaseUser user;
@@ -59,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
         rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
+        btnChat = findViewById(R.id.btnChat_MainActivity);
+        
+        btnChat.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                Intent igoChat = new Intent(MainActivity.this,Chat.class);
+                startActivity(igoChat);
+            }
+        });
 
         todo.setOnClickListener(new View.OnClickListener() {
             @Override
