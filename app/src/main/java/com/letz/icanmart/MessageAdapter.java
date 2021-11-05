@@ -1,6 +1,7 @@
 package com.letz.icanmart;
 
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -23,11 +24,19 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     public MessageAdapter(List<ModelClass> list, String userName) {
         this.list = list;
         this.userName = userName;
+        status = false;
+        send = 1;
+        receive = 2;
     }
 
     @NonNull
     @Override
     public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view;
+
+        if (viewType == send){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_send, parent, false);
+        }
         return null;
     }
 
@@ -54,7 +63,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     public int getItemViewType(int position) {
         if (list.get(position).getFrom().equals(userName))
         {
-
+            status = true;
+            return send;
         }
-    }
+        else {
+            status = false;
+            return receive;
+        }
+    };
 }

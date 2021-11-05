@@ -10,6 +10,7 @@ public class ModelClass
     }
 
     public ModelClass(String message, String from) {
+
         this.message = message;
         this.from = from;
     }
